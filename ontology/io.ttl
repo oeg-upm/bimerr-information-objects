@@ -16,7 +16,7 @@
                                                             dcterms:license "http://purl.org/NET/rdflicense/cc-by4.0" ;
                                                             dcterms:publisher "http://www.oeg-upm.net/" ;
                                                             dcterms:title "Information Objects Ontology" ;
-                                                            owl:versionInfo "0.0.2" .
+                                                            owl:versionInfo "0.0.3" .
 
 #################################################################
 #    Annotation properties
@@ -39,64 +39,27 @@ dcterms:title rdf:type owl:AnnotationProperty .
 
 
 #################################################################
-#    Object Properties
-#################################################################
-
-###  http://bimerr.iot.linkeddata.es/def/information-objects#hasDocumentation
-io:hasDocumentation rdf:type owl:ObjectProperty ;
-                    rdfs:range io:InformationObject ;
-                    rdfs:comment "Relates an entity (Building, Project, Space, etc) with an information object (file) describing an aspect of that entity."@en ;
-                    rdfs:label "has documentation"@en .
-
-
-###  http://bimerr.iot.linkeddata.es/def/information-objects#hasGeometryFile
-io:hasGeometryFile rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf io:hasDocumentation ;
-                   rdfs:range io:InformationObject ;
-                   rdfs:comment "Relates the representation of a building topological element with a file describing its geometric information."@en ;
-                   rdfs:label "has geometry file"@en .
-
-
-###  http://bimerr.iot.linkeddata.es/def/information-objects#hasObxmlFile
-io:hasObxmlFile rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf io:hasDocumentation ;
-                rdfs:range io:InformationObject ;
-                rdfs:comment "Relates Space entities with obXML files."@en ;
-                rdfs:label "has obxml file"@en .
-
-
-###  http://bimerr.iot.linkeddata.es/def/information-objects#hasWorkflowPlan
-io:hasWorkflowPlan rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf io:hasDocumentation ;
-                   rdfs:range io:InformationObject ;
-                   rdfs:comment "Relates a Project entity with a workflow plan file."@en ;
-                   rdfs:label "has workflow plan"@en .
-
-
-###  http://bimerr.iot.linkeddata.es/def/information-objects#isRelatedToFile
-io:isRelatedToFile rdf:type owl:ObjectProperty ;
-                   rdfs:domain io:InformationObject ;
-                   rdfs:range io:InformationObject ;
-                   rdfs:comment "Indicated a relationship between files."@en ;
-                   rdfs:label "is related to file"@en .
-
-
-#################################################################
 #    Data properties
 #################################################################
 
-###  http://bimerr.iot.linkeddata.es/def/information-objects#created
-io:created rdf:type owl:DatatypeProperty ;
-           rdfs:range xsd:dateTime ;
-           rdfs:comment "Date when the document has been created."@en ;
-           rdfs:label "created"@en .
+###  http://bimerr.iot.linkeddata.es/def/information-objects#creationAuthor
+io:creationAuthor rdf:type owl:DatatypeProperty ;
+                  rdfs:range xsd:string ;
+                  rdfs:comment "Creator of the file."@en ;
+                  rdfs:label "creator"@en .
 
 
-###  http://bimerr.iot.linkeddata.es/def/information-objects#creator
-io:creator rdf:type owl:DatatypeProperty ;
-           rdfs:range xsd:string ;
-           rdfs:comment "Creator of the file."@en ;
-           rdfs:label "creator"@en .
+###  http://bimerr.iot.linkeddata.es/def/information-objects#creationDate
+io:creationDate rdf:type owl:DatatypeProperty ;
+                rdfs:range xsd:dateTime ;
+                rdfs:comment "Date when the document has been created."@en ;
+                rdfs:label "created"@en .
+
+
+###  http://bimerr.iot.linkeddata.es/def/information-objects#datatype
+io:datatype rdf:type owl:DatatypeProperty ;
+            rdfs:range xsd:base64Binary ;
+            rdfs:label "datatype"@en .
 
 
 ###  http://bimerr.iot.linkeddata.es/def/information-objects#description
@@ -104,13 +67,6 @@ io:description rdf:type owl:DatatypeProperty ;
                rdfs:range xsd:string ;
                rdfs:comment "A short description of the content of the file."@en ;
                rdfs:label "description"@en .
-
-
-###  http://bimerr.iot.linkeddata.es/def/information-objects#filename
-io:filename rdf:type owl:DatatypeProperty ;
-            rdfs:range xsd:string ;
-            rdfs:comment "Filename or path to the location of the file."@en ;
-            rdfs:label "filename"@en .
 
 
 ###  http://bimerr.iot.linkeddata.es/def/information-objects#format
@@ -127,18 +83,25 @@ io:identifier rdf:type owl:DatatypeProperty ;
               rdfs:label "identifier"@en .
 
 
-###  http://bimerr.iot.linkeddata.es/def/information-objects#lastModificationAuthor
-io:lastModificationAuthor rdf:type owl:DatatypeProperty ;
-                          rdfs:range xsd:string ;
-                          rdfs:comment "The user who last modified the file."@en ;
-                          rdfs:label "las modification author"@en .
+###  http://bimerr.iot.linkeddata.es/def/information-objects#location
+io:location rdf:type owl:DatatypeProperty ;
+            rdfs:range xsd:anyURI ;
+            rdfs:comment "Filename or path to the location of the file."@en ;
+            rdfs:label "filename"@en .
 
 
-###  http://bimerr.iot.linkeddata.es/def/information-objects#modified
-io:modified rdf:type owl:DatatypeProperty ;
-            rdfs:range xsd:dateTime ;
-            rdfs:comment "Date when the file was last modified."@en ;
-            rdfs:label "modified"@en .
+###  http://bimerr.iot.linkeddata.es/def/information-objects#updateAuthor
+io:updateAuthor rdf:type owl:DatatypeProperty ;
+                rdfs:range xsd:string ;
+                rdfs:comment "The user who last modified the file."@en ;
+                rdfs:label "las modification author"@en .
+
+
+###  http://bimerr.iot.linkeddata.es/def/information-objects#updateDate
+io:updateDate rdf:type owl:DatatypeProperty ;
+              rdfs:range xsd:dateTime ;
+              rdfs:comment "Date when the file was last modified."@en ;
+              rdfs:label "modified"@en .
 
 
 ###  http://bimerr.iot.linkeddata.es/def/information-objects#version
@@ -155,19 +118,15 @@ io:version rdf:type owl:DatatypeProperty ;
 ###  http://bimerr.iot.linkeddata.es/def/information-objects#InformationObject
 io:InformationObject rdf:type owl:Class ;
                      rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                       owl:onProperty io:created ;
+                                       owl:onProperty io:creationAuthor ;
                                        owl:cardinality "1"^^xsd:nonNegativeInteger
                                      ] ,
                                      [ rdf:type owl:Restriction ;
-                                       owl:onProperty io:creator ;
+                                       owl:onProperty io:creationDate ;
                                        owl:cardinality "1"^^xsd:nonNegativeInteger
                                      ] ,
                                      [ rdf:type owl:Restriction ;
                                        owl:onProperty io:description ;
-                                       owl:cardinality "1"^^xsd:nonNegativeInteger
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty io:filename ;
                                        owl:cardinality "1"^^xsd:nonNegativeInteger
                                      ] ,
                                      [ rdf:type owl:Restriction ;
@@ -179,16 +138,24 @@ io:InformationObject rdf:type owl:Class ;
                                        owl:cardinality "1"^^xsd:nonNegativeInteger
                                      ] ,
                                      [ rdf:type owl:Restriction ;
-                                       owl:onProperty io:lastModificationAuthor ;
-                                       owl:cardinality "1"^^xsd:nonNegativeInteger
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty io:modified ;
+                                       owl:onProperty io:location ;
                                        owl:cardinality "1"^^xsd:nonNegativeInteger
                                      ] ,
                                      [ rdf:type owl:Restriction ;
                                        owl:onProperty io:version ;
                                        owl:cardinality "1"^^xsd:nonNegativeInteger
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty io:datatype ;
+                                       owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty io:updateAuthor ;
+                                       owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty io:updateDate ;
+                                       owl:maxCardinality "1"^^xsd:nonNegativeInteger
                                      ] ;
                      rdfs:comment "Class that represents any type of file."@en ;
                      rdfs:label "Information object"@en .
