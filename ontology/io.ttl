@@ -39,6 +39,45 @@ dcterms:title rdf:type owl:AnnotationProperty .
 
 
 #################################################################
+#    Object Properties
+#################################################################
+
+###  http://bimerr.iot.linkeddata.es/def/information-objects#relatedAudioFile
+io:relatedAudioFile rdf:type owl:ObjectProperty ;
+                    rdfs:label "related audio file"@en .
+
+
+###  http://bimerr.iot.linkeddata.es/def/information-objects#relatedDocumentation
+io:relatedDocumentation rdf:type owl:ObjectProperty ;
+                        rdfs:label "related documentation"@en .
+
+
+###  http://bimerr.iot.linkeddata.es/def/information-objects#relatedIFCFile
+io:relatedIFCFile rdf:type owl:ObjectProperty ;
+                  rdfs:label "related ifc file"@en .
+
+
+###  http://bimerr.iot.linkeddata.es/def/information-objects#relatedImageFile
+io:relatedImageFile rdf:type owl:ObjectProperty ;
+                    rdfs:label "related image file"@en .
+
+
+###  http://bimerr.iot.linkeddata.es/def/information-objects#relatedOBJFile
+io:relatedOBJFile rdf:type owl:ObjectProperty ;
+                  rdfs:label "related obj file"@en .
+
+
+###  http://bimerr.iot.linkeddata.es/def/information-objects#relatedObxmlFile
+io:relatedObxmlFile rdf:type owl:ObjectProperty ;
+                    rdfs:label "related obxml file"@en .
+
+
+###  http://bimerr.iot.linkeddata.es/def/information-objects#relatedVideoFile
+io:relatedVideoFile rdf:type owl:ObjectProperty ;
+                    rdfs:label "related video file"@en .
+
+
+#################################################################
 #    Data properties
 #################################################################
 

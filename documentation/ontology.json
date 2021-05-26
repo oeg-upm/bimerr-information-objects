@@ -246,6 +246,55 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#anyURI"
   } ]
 }, {
+  "@id" : "http://bimerr.iot.linkeddata.es/def/information-objects#relatedAudioFile",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "related audio file"
+  } ]
+}, {
+  "@id" : "http://bimerr.iot.linkeddata.es/def/information-objects#relatedDocumentation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "related documentation"
+  } ]
+}, {
+  "@id" : "http://bimerr.iot.linkeddata.es/def/information-objects#relatedIFCFile",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "related ifc file"
+  } ]
+}, {
+  "@id" : "http://bimerr.iot.linkeddata.es/def/information-objects#relatedImageFile",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "related image file"
+  } ]
+}, {
+  "@id" : "http://bimerr.iot.linkeddata.es/def/information-objects#relatedOBJFile",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "related obj file"
+  } ]
+}, {
+  "@id" : "http://bimerr.iot.linkeddata.es/def/information-objects#relatedObxmlFile",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "related obxml file"
+  } ]
+}, {
+  "@id" : "http://bimerr.iot.linkeddata.es/def/information-objects#relatedVideoFile",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "related video file"
+  } ]
+}, {
   "@id" : "http://bimerr.iot.linkeddata.es/def/information-objects#updateAuthor",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
